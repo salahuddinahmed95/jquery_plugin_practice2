@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<style type="text/css">
+		* {padding:0;margin:0;}
+	</style>
+
+	<!-- stick !-->
+	<link rel="stylesheet" type="text/css" href="../src/stick-to-me.css">
+	<script src="../src/stick-to-me.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const stickToMeInstance = stickToMe({
+				layer: '#stickLayer',
+				debug: false,
+				// cookie: true,
+          		// maxamount: 1,
+				// cookieExpiration: 2 * 60
+			});
+
+			// Add event listener to close button
+			document.querySelector('.stick_close').addEventListener('click', stickToMeInstance.close);
+		});
+	</script>
+
+</head>
+<body>
+
+	<div id="stickLayer" style="display:none;" class="stick_popup">
+		<div class="stick_close">&times;</div>
+		<div class="stick_content">
+            <h1>Hello! I got your attention!</h1>
+		</div>
+	</div>
+
+</body>
+</html>

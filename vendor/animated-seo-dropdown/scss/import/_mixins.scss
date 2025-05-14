@@ -1,0 +1,20 @@
+// Set position mixin
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+// Absolute
+@mixin absolute($opts...) {
+	@include position(absolute, $opts...);
+}
+
+// Check border radius
+@mixin checkBorderRadius($radius) {
+	@if $button-borderRadius != 0 {
+		border-radius: $radius;
+	}
+}

@@ -1,0 +1,96 @@
+*,
+:before,
+:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+// Dropdown
+.ui.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+// Dropdown button
+.ui.dropdown {
+	.button {
+		display: block;
+		position: relative;
+		height: $button-height;
+		padding: 0 $button-pdRight 0 $button-pdLeft;
+		border: 1px solid $button-borderColor;
+		@include checkBorderRadius($button-borderRadius);
+		font-size: $button-fontSize;
+		line-height: $button-lineHeight;
+		color: $button-color;
+		text-decoration: none;
+		white-space: nowrap;
+
+		&:after {
+			@include absolute($top: 50%, $right: $icon-posRight);
+			margin-top: -($icon-size / 2);
+			border-width: $icon-size $icon-size 0;
+			border-style: solid;
+			border-color: $icon-bgColor transparent transparent;
+			content: '';
+		}
+	}
+
+	.button:hover,
+	&.active .button {
+		border-color: darken($button-borderColor, 5%);
+		background-color: darken($button-bgColor, 3%);
+	}
+}
+
+// Dropdown layer
+.ui.dropdown {
+	.layer {
+		display: none;
+		@include absolute($top: 100%, $right: 0, $left: 0);
+		// border-radius값이 있을 경우 버튼과 레이어 사이 여백
+		@if $button-borderRadius == 0 {
+			margin: -1px 0 0;
+		} @else {
+			margin:2px 0 0;
+		}
+		padding: 0;
+		border: 1px solid $layer-borderColor;
+		@include checkBorderRadius($button-borderRadius);
+		background-color: $layer-bgColor;
+		line-height:1.5;
+		list-style-type: none;
+
+		li {
+			& > a {
+				display: block;
+				padding: $layer-link-pdVertical $layer-link-pdHorizontal;
+				font-size: $layer-link-fontSize;
+				color: $layer-link-color;
+				text-decoration: none;
+			}
+
+			& > a:hover,
+			&.active > a {
+				background-color: darken($button-bgColor, 3%);
+			}
+		}
+	}
+}
+
+// Dropdown active
+.ui.dropdown.active {
+	z-index:1;
+
+	.button:after {
+		border-top-width: 0;
+		border-bottom-width: $icon-size;
+		border-top-color: transparent;
+		border-bottom-color: $icon-bgColor;
+	}
+
+	.layer {
+		display:block;
+	}
+}

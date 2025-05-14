@@ -1,0 +1,24 @@
+// Button options
+$button-height:				30px;
+$button-pdRight:			30px;
+$button-pdLeft:				10px;
+$button-borderColor:		#ccc;
+$button-borderRadius:		3px; // 적용하지 않을 시 0 (삭제X)
+$button-bgColor:			#fff;
+$button-fontSize:			14px;
+$button-lineHeight:			$button-height;
+$button-color:				#333;
+
+$icon-posRight:				10px;
+$icon-size:					4px;
+$icon-bgColor:				#333;
+
+// Layer options
+$layer-borderColor:			$button-borderColor;
+$layer-bgColor:				#fff;
+
+// Layer link options
+$layer-link-pdVertical:		5px;
+$layer-link-pdHorizontal:	10px;
+$layer-link-fontSize:		12px;
+$layer-link-color:			#666;
